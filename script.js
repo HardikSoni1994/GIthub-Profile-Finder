@@ -5,7 +5,7 @@ const profile = document.getElementById('profile');
 const repo = document.getElementById('repo');
 
 // --- Main Function ---
-async function getGitHubUsersData(username) {
+async function githubUser(username) {
     const basePoint = "https://api.github.com/users/";
     const userAPI = basePoint + username;
     const userRepoAPI = basePoint + username + "/repos?sort=created";
@@ -25,13 +25,13 @@ async function getGitHubUsersData(username) {
         repo.innerHTML = "";
 
         // API Call
-        const [userRes, userRepoRes] = await Promise.all([
+        const [userResponse, userRepository] = await Promise.all([
             fetch(userAPI),
             fetch(userRepoAPI)
         ]);
 
         // If user not found
-        if (!userRes.ok) {
+        if (!userResponse.ok) {
             profile.innerHTML = `
                 <div class="card" style="text-align: center; padding: 40px;">
                     <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ef4444; margin-bottom: 20px;"></i>
@@ -43,8 +43,8 @@ async function getGitHubUsersData(username) {
         }
 
         // Get data
-        const userProfile = await userRes.json();
-        const userRepos = await userRepoRes.json();
+        const userProfile = await userResponse.json();
+        const userRepos = await userRepository.json();
 
         console.log("User Data:", userProfile);
 
@@ -163,7 +163,7 @@ function getLanguageColor(language) {
 searchBtn.addEventListener('click', () => {
     const inputName = search.value.trim();
     if (inputName !== "") {
-        getGitHubUsersData(inputName);
+        githubUser(inputName);
     } else {
         // Simple alert (no extra notification system)
         alert("Please enter a GitHub username!");
