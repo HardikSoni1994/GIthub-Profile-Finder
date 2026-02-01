@@ -1,92 +1,327 @@
-/* Global Area */
+/* ===== RESET & BASE ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
+
 body {
-    background-color: #0d1117;
-    color: #c9d1d9;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    color: #f1f5f9;
+    min-height: 100vh;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
-a {
-    text-decoration: none;
+
+/* ===== MAIN CONTAINER ===== */
+.main-container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
-li {
-    list-style: none;
-}
-main-content {
-    width: 600px;
+
+/* ===== HEADER ===== */
+.header {
     text-align: center;
+    margin-bottom: 40px;
 }
-/* 4. Search Box Design */
-.search-box {
-    background-color: #161b22;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #30363d;
-}
-input {
-    padding: 10px;
-    width: 70%;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-}
-button {
-    padding: 10px 20px;
-    background-color: #238636;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.card {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 20px;
-    padding: 2rem;
-    display: flex; /* Photo left, Text right */
+
+.logo {
+    display: flex;
     align-items: center;
-    text-align: left;
-    margin-bottom: 20px;
-}
-.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* Photo Gol */
-    border: 5px solid #238636;
-    margin-right: 20px;
-}
-.user-info h2 {
+    justify-content: center;
+    gap: 15px;
     margin-bottom: 10px;
 }
-.info {
-    list-style: none; /* Bullets hataye */
+
+.logo i {
+    font-size: 3.5rem;
+    color: #8b5cf6;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo span {
+    color: #10b981;
+}
+
+.tagline {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* ===== SEARCH SECTION ===== */
+.search-section {
+    margin-bottom: 40px;
+}
+
+.search-box {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #334155;
+    border-radius: 16px;
+    padding: 20px 25px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.search-box i {
+    font-size: 1.5rem;
+    color: #5d27db;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f8fafc;
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+
+.search-box input::placeholder {
+    color: #94a3b8;
+}
+
+.search-box button {
+    background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+.search-box button:active {
+    transform: translateY(0);
+}
+
+/* ===== PROFILE CARD ===== */
+.card {
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 1px solid #334155;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    background: linear-gradient(45deg, #8b5cf6, #3b82f6, #10b981) border-box;
+    padding: 4px;
+    object-fit: cover;
+}
+
+.user-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #f8fafc;
+}
+
+.user-info p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    max-width: 500px;
+}
+
+.info {
+    display: flex;
+    gap: 30px;
+    list-style: none;
     padding: 0;
     margin-top: 20px;
-    width: 300px;
 }
+
+.info li {
+    text-align: center;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 15px 25px;
+    border-radius: 12px;
+    min-width: 120px;
+    border: 1px solid #334155;
+}
+
+.info li strong {
+    display: block;
+    font-size: 2rem;
+    color: #8b5cf6;
+    margin-bottom: 5px;
+}
+
+.info li span {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== REPOSITORIES ===== */
 .repo {
     display: inline-block;
-    background-color: #21262d;
-    color: #58a6ff;
+    background: rgba(15, 23, 42, 0.8);
+    color: #60a5fa;
+    padding: 12px 25px;
+    margin: 8px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    border: 1px solid #334155;
     text-decoration: none;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    border: 1px solid #30363d;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.repo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.repo:hover::before {
+    left: 100%;
 }
 
 .repo:hover {
-    background-color: #30363d; /* Hover effect */
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #60a5fa;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(96, 165, 250, 0.2);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.footer i {
+    color: #ef4444;
+    margin: 0 5px;
+}
+
+/* ===== LOADING & ERROR ===== */
+#profile h3 {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.5rem;
+    color: #94a3b8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .info {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .search-box button {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 20px;
+    }
+    
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .user-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .info li {
+        min-width: 100px;
+        padding: 12px 20px;
+    }
+    
+    .info li strong {
+        font-size: 1.8rem;
+    }
 }

@@ -3,28 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Finder</title>
+    <title>GitHub Finder | Modern</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="main-container">
-
-        <h1>GitHub User Finder 🔍</h1>
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <i class="fab fa-github"></i>
+                <h1>GitHub<span> Finder</span></h1>
+            </div>
+            <p class="tagline">Find any GitHub profile in seconds</p>
+        </div>
         
-        <div class="search-box">
-            <input type="text" id="search" placeholder="Enter Github Username...">
-            <button id="searchBtn">Search</button>
+        <!-- Search Box -->
+        <div class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search" placeholder="Search GitHub username...">
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
         </div>
 
+        <!-- Profile Section -->
         <div id="profile"></div>
 
+        <!-- Repositories Section -->
         <div id="repo"></div>
 
+        <!-- Footer -->
+        <div class="footer">
+            <p>Made with <i class="fas fa-heart"></i> by Hardik Soni</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
